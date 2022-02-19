@@ -35,7 +35,7 @@ public class mainTest {
 
     @Test
     public void changeCountMessage() throws InterruptedException {
-        // логинемся
+        //логинемся
         yandexStartPage.inputAllRegInfo();
         //парсим значение колличества писем и кладем значение в int переменную
         //проверям что прошли авторизацию
