@@ -15,7 +15,7 @@ public class MailMainPage {
     /**
      * Боковое меню.Кнопка "Входящие"
      */
-    @FindBy(xpath = "//a[@class='mail-NestedList-Item mail-Tabs-Item mail-Tabs-Item_relevant js-tabs-item js-valid-drag-target js-tab-relevant mail-NestedList-Item_current']")
+    @FindBy(xpath = "//a[@title='Входящие']")
     private WebElement incomingButton;
 
     /**
@@ -27,7 +27,7 @@ public class MailMainPage {
     /**
      * Колличество писем
      */
-    @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[7]/div/div[3]/div[2]/div[2]/div/div[1]/div[1]/div[1]/a/div[2]/span")
+    @FindBy(xpath = "//span[@class='mail-NestedList-Item-Info-Extras'][1]")
     private WebElement mailCount;
 
     /**
@@ -86,7 +86,6 @@ public class MailMainPage {
      * Получаем колличество писем с тайтлом Simbirsoft
      */
     public int getTitleSize() {
-        int i = titleSimbirsoft.size();
-        return i;
+        return titleSimbirsoft.size();
     }
 }

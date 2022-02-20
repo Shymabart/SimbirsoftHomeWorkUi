@@ -14,7 +14,7 @@ public class MessageWindow {
     /**
      * Инпут ввода email
      */
-    @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[10]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[1]/div/div[1]/div[1]/div[1]/div/div/div/div/div")
+    @FindBy(xpath = "//div[@class='composeYabbles'][1]")
     private WebElement mailAdressInput;
 
     /**
@@ -44,7 +44,7 @@ public class MessageWindow {
     /**
      * Колличество писем
      */
-    @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[7]/div/div[3]/div[2]/div[2]/div/div[1]/div[1]/div[1]/a/div[2]/span")
+    @FindBy(xpath = "//span[@class='mail-NestedList-Item-Info-Extras'][1]")
     private WebElement mailCount;
     public String getMailCount(){
         return mailCount.getText();

@@ -69,6 +69,5 @@ public class YandexStartPage {
         passwordInput.click();
         passwordInput.sendKeys("simbirsoft12345");
         enterButton.click();
-//      numberSkip.click();
     }
 }

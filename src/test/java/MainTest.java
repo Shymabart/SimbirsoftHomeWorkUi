@@ -10,7 +10,7 @@ import pageObject.YandexStartPage;
 import properties.ConfProperties;
 import java.util.concurrent.TimeUnit;
 
-public class mainTest {
+public class MainTest {
     public static YandexStartPage yandexStartPage;
     public static MailMainPage mailMainPage;
     public static MessageWindow messageWindow;
@@ -34,14 +34,9 @@ public class mainTest {
     }
 
     @Test
-    public void changeCountMessage() throws InterruptedException {
+    public void changeCountMessage() {
         //логинемся
         yandexStartPage.inputAllRegInfo();
-        //парсим значение колличества писем и кладем значение в int переменную
-        //проверям что прошли авторизацию
-        String s = mailMainPage.getMailCount();
-        int countBefore = Integer.parseInt (s.trim ());
-        //считаем кол-во писем с темой "Simbirsoft Theme" до отправки письма
         int countTitleBefore = mailMainPage.getTitleSize();
         //нажимаем кнопку "Отправить сообщениие"
         mailMainPage.sendMassage();
@@ -49,16 +44,10 @@ public class mainTest {
         messageWindow.inputEmail();
         //это действие необходимо,чтоб обновился шильдик сообщений и мы могли его корректно распарсить
         mailMainPage.canceledCheckbox();
-        //нужно явное ожидание,страница не успевает подгрузиться и в переменную "y" пишется не правильное значение и выбрасывается исключение
-        Thread.sleep(2000);
-        String s1 = mailMainPage.getMailCount();
-        int countAfter = Integer.parseInt (s1.trim ());
         //считаем кол-во писем с темой "Simbirsoft Theme" после отправки письма
         int countTitleAfter = mailMainPage.getTitleSize();
-        Assert.assertEquals("Кол-во писем не увеличилось на 1",countBefore+1,countAfter);
         Assert.assertEquals("Кол-во тем на 1",countTitleBefore+1,countTitleAfter);
     }
-
     @AfterClass
     public static void tearDown() {
         driver.quit(); }
