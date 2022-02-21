@@ -10,7 +10,7 @@ import pageObject.YandexStartPage;
 import properties.ConfProperties;
 import java.util.concurrent.TimeUnit;
 
-public class mainTest {
+public class MainTest {
     public static YandexStartPage yandexStartPage;
     public static MailMainPage mailMainPage;
     public static MessageWindow messageWindow;
