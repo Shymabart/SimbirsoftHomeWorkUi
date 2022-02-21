@@ -81,6 +81,7 @@ public class MailMainPage {
         setReloadPage();
         setAsReaded();
         setReloadPage();
+        setReloadPage();
     }
     /**
      * Получаем колличество писем с тайтлом Simbirsoft
