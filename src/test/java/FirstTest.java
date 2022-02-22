@@ -34,7 +34,7 @@ public class FirstTest {
     }
 
     @Test
-    public void changeCountMessage() {
+    public void changeCountMessage() throws InterruptedException {
         //логинемся
         yandexStartPage.inputAllRegInfo();
         int countTitleBefore = mailMainPage.getTitleSize();
@@ -44,6 +44,7 @@ public class FirstTest {
         messageWindow.inputEmail();
         //это действие необходимо,чтоб обновился шильдик сообщений и мы могли его корректно распарсить
         mailMainPage.canceledCheckbox();
+        Thread.sleep(2000);
         //считаем кол-во писем с темой "Simbirsoft Theme" после отправки письма
         int countTitleAfter = mailMainPage.getTitleSize();
         Assert.assertEquals("Кол-во тем на 1",countTitleBefore+1,countTitleAfter);
