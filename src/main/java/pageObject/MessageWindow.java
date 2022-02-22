@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class MessageWindow {
     private WebDriver driver;
     public MessageWindow(WebDriver driver){
@@ -51,13 +53,24 @@ public class MessageWindow {
         }
 
     /**
+     * Тайтлы Simbirsoft theme
+     */
+    @FindBy(xpath = "//span[@title='Simbirsoft theme' and text()='Simbirsoft theme']")
+    private List<WebElement> titleSimbirsoft;
+    /**
+     * Получаем колличество писем с тайтлом Simbirsoft
+     */
+    public int getTitleSize() {
+        return titleSimbirsoft.size();
+    }
+    /**
      * Отправляем сообщение
      */
     public void inputEmail()  {
         themeInput.click();
         themeInput.sendKeys("Simbirsoft theme");
         textInput.click();
-        textInput.sendKeys("Найдено " + getMailCount() + " писем\\ьма");
+        textInput.sendKeys("Найдено " + getTitleSize() + " писем\\ьма");
         mailAdressInput.click();
         mailAdressInput.sendKeys("simbirsoftTest1@yandex.ru");
         sendMessageButton.click();
